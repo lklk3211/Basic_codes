@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    cout<<"Enter the Size of array: ";
+    int size;
+    cin>>size;
+    int array[size];
+    
+    
+    int ans=sizeof(array)/sizeof(int);
+    cout<<"The SIze of array is: "<<ans;
+
+    return 0;
+}

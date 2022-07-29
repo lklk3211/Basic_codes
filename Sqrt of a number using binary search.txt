@@ -1,0 +1,108 @@
+*************************************************************************************
+#include <iostream>
+using namespace std;
+long long int binarySearch(int n)
+    {
+        int s=0;
+       long long  int ans=-1;
+        int e=n;
+        while(s<=e)
+        {
+           long long int mid=s+(e-s)/2;
+           long long  int square=mid*mid;
+            if(square== n)
+            {
+                return mid;
+            }
+            else if(square < n )
+            {
+                ans=mid;
+                s=mid+1;
+            }
+            else
+            {
+                e=mid-1;
+            }
+        }
+        return ans;
+    }
+int main()
+{
+    int x;
+    cout<<"Enter the number whose sqrt you want: ";
+    cin>>x;
+    
+    int ans=binarySearch(x);
+    cout<<"The sqrt of "<<x<<" is  :"<<ans;
+
+    return 0;
+}
+
+
+*************************************************************************************************
+
+
+#include <iostream>
+using namespace std;
+long long int binarySearch(int n)
+    {
+        int s=0;
+       long long  int ans=-1;
+        int e=n;
+        while(s<=e)
+        {
+           long long int mid=s+(e-s)/2;
+           long long  int square=mid*mid;
+            if(square== n)
+            {
+                return mid;
+            }
+            else if(square < n )
+            {
+                ans=mid;
+                s=mid+1;
+            }
+            else
+            {
+                e=mid-1;
+            }
+        }
+        return ans;
+    }
+    
+double precise(int n,int p,int ans)
+{
+    double factor=1;
+    double val=ans;
+    
+    for(int i=0; i<p;i++)
+    {
+        factor=factor/10;
+        
+        for(double j=val;j*j<n;j=j+factor)
+        {
+            val=j;
+        }
+    }
+
+    return val;
+}
+int main()
+{
+    int x;
+    cout<<"Enter the number whose sqrt you want: ";
+    cin>>x;
+    
+    int p;
+    cout<<"Enter the precision you wants:";
+    cin>>p;
+    
+    int ans=binarySearch(x);
+    cout<<"The sqrt of "<<x<<" is  :"<<ans<<endl;
+    
+    
+    double ans2=precise(x,p,ans);
+    cout<<"The more precise sqrt of "<<x<<" is  :"<<ans2;
+
+    return 0;
+}

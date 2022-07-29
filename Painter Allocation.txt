@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+bool isPaintpossible(int arr[], int k, int mid, int n){
+	int paintersCnt = 1;
+	int areaSum = 0;
+	for(int i=0; i<n; i++)
+    {
+		if(areaSum + arr[i] <= mid)
+        {
+			areaSum += arr[i];
+		}
+		else
+        {
+			paintersCnt++;
+			if(paintersCnt > k || arr[i] > mid)
+            {
+                return false;
+			}
+			areaSum = 0;
+			areaSum += arr[i];
+		}
+	}
+	return true;
+}
+int findLargestMinDistance(int boards[],int size, int k)
+{
+	int s = 0;
+	int sum = 0;
+	
+	for(int i=0; i<size; i++)
+    {
+		sum += boards[i];
+	}
+	int e=sum;
+	int mid = s + (e-s)/2;
+	int ans;
+	while(s<=e)
+    {
+		if(isPaintpossible(boards,k,mid,size))
+        {
+            ans = mid;
+			e = mid - 1;
+		}
+		else
+        {
+			s = mid + 1;
+		}
+		mid = s + (e-s)/2;
+	}
+	return ans;
+}
+int main()
+{
+     int size;
+    cout<<"Enter the size of array: ";
+    cin>>size;
+    int arr[size];
+    
+    int m;
+    cout<<"Enter the number of Painter :";
+    cin>>m;
+    
+    cout<<"Enter the elements of the array: ";
+    for(int i=0;i<size;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    
+    int final=findLargestMinDistance(arr,size,m);
+    cout<<"The minimum time required to get the job done:  "<<final;
+
+    return 0;
+}

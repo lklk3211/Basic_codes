@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+void passByValue(int n)
+{
+    n++;
+    cout<<"The value of n in fuction is: "<<n<<endl;
+}
+
+int main()
+{
+   int n;
+   cout<<"Enter the value of n: ";
+   cin>>n;
+   cout<<"Value of N is "<<n<<endl;
+   
+   passByValue(n);
+   
+   
+   
+
+    return 0;
+}

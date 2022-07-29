@@ -1,0 +1,140 @@
+#include<iostream>
+using namespace std;
+class A
+{
+private:
+    int num1;
+protected:
+    int num2;
+    void input()
+    {
+        cout<<"I am protected input of class A"<<endl;
+    }
+public:
+    A()
+    {
+        cout<<"I am defalut constructor of class A"<<endl;
+    }
+    A(int x,int y)
+    {
+         //x=100;
+         //y=200;
+         cout<<"value of x:"<<x<<"value of y:"<<y<<endl;
+    }
+    void fun1()
+    {
+        cout<<"I am fun1 of class A"<<endl;
+    }
+    void fun2()
+    {
+        cout<<"I am fun2 of class A"<<endl;
+    }
+    void display()
+    {
+        cout<<"I am display of class A"<<endl;
+    }
+};
+
+
+//class B:public A(all except private means protected and public will become public)
+//class B:protected A(all except private means protected and public will become protected)
+//class B:private A(all except private means protected and public will become private)
+
+
+
+class B:public A
+{
+private:
+    int a;
+protected:
+    int b;
+public:
+    B()
+    {
+        cout<<"I am defalut constructor of class B"<<endl;
+    }
+    B(int a,int b)
+    {
+         //a=100;
+         //b=200;
+         cout<<"value of a:"<<a<<"value of b:"<<b<<endl;
+    }
+
+
+    /*B(int a,int b):A(a,b)
+    {
+         //a=100;
+         //b=200;
+         cout<<"value of a:"<<a<<"value of b:"<<b<<endl;
+    }*///(For Calling Parametrized Constructor of class A )
+
+
+
+     void fun3()
+    {
+        cout<<"I am fun3 of class B"<<endl;
+    }
+    void fun4()
+    {
+        cout<<"I am fun4 of class B"<<endl;
+    }
+    void display()
+    {
+        cout<<"I am display of class B"<<endl;
+    }
+    void show()
+    {
+        num2=10;
+        cout<<num2<<endl;
+    }
+    void call()
+    {
+        input();
+    }
+
+};
+
+
+int main()
+{
+    //B obj;(Default constructor of A class will be called then Default constructor of B class will be called)
+    B obj(10,20);//(Default constructor of A class will be called then Parameterized constructor of class B will be called)
+    obj.fun1();
+    obj.fun2();
+    obj.fun3();
+    obj.fun4();
+    obj.display();//(Display function of Class B(Derived Class) will be called).
+    obj.A::display();//(If we have display function in both classes i.e. base and derived then by using this display of base class will be called)
+    obj.call();
+    //obj.input();(It will be in protected of b class so it won't be used in main.
+    obj.show();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

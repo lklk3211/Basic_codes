@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int fib(int num)
+{
+    int a=0;
+    int b=1;
+    for(int i=2;i<=num;i++)
+    {
+        int c=a+b;
+        a=b;
+        b=c;
+    }
+    return b;
+    
+    
+}
+
+
+int main()
+{
+   int n;
+   cout<<"Enter the value of n: ";
+   cin>>n;
+   
+   int ans=fib(n);
+   cout<<"The nth term of the fibonacci series is: "<<ans;
+
+    return 0;
+}

@@ -1,0 +1,65 @@
+******************************************************************************
+#include <iostream>
+using namespace std;
+int power(int num,int power)
+{
+    int ans=1;
+    for(int i=1;i<=power;i++)
+    {
+        ans=ans*num;
+    }
+    return ans;
+}
+int main()
+{
+    int a,b;
+    cout<<"Enter the Value of a :";
+    cin>>a;
+    cout<<"Enter the value of b :";
+    cin>>b;
+    
+    
+    int ans=power(a,b);
+    cout<<"The answer is :"<<ans<<endl;
+    
+    
+    
+    return 0;
+}
+
+
+
+
+
+*****************************************************************************
+#include <iostream>
+using namespace std;
+int power()
+{
+    int a,b;
+    cout<<"Enter the Value of a :";
+    cin>>a;
+    cout<<"Enter the value of b :";
+    cin>>b;
+    
+    int ans=1;
+    for(int i=1;i<=b;i++)
+    {
+        ans=ans*a;
+    }
+    return ans;
+}
+int main()
+{
+    
+    
+    int ans=power();
+    cout<<"The answer is :"<<ans<<endl;
+    
+    int ans1=power();
+    cout<<"The answer is :"<<ans1<<endl;
+    
+    
+    
+    return 0;
+}

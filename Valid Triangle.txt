@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+bool isTriangleValid(int a,int b,int c)
+{
+    if (a + b <= c || a + c <= b || b + c <= a)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+int main()
+{
+    int a,b,c;
+    cout<<"Enter first side :";
+    cin>>a;
+    cout<<endl;
+    cout<<"Enter second side :";
+    cin>>b;
+    cout<<endl;
+    cout<<"Enter third side :";
+    cin>>c;
+    cout<<endl;
+    
+    if(isTriangleValid(a,b,c))
+    {
+        cout<<"The triangle is valid";
+    }
+    else
+    {
+        cout<<"Triangle is invalid";
+    }
+    
+    return 0;
+}

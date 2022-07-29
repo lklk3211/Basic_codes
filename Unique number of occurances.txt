@@ -1,0 +1,33 @@
+ bool uniqueOccurrences(vector<int>& arr) 
+{
+    sort(arr.begin(), arr.end());
+    
+    vector<int>counter;
+    int count=1;
+        
+    for(int i=0;i<arr.size()-1;i++)
+        {
+            if(arr.size()==1)
+            {
+                return true;
+            }
+            if(arr[i]!=arr[i+1])
+            {
+                counter.push_back(count);
+                count=0;
+            }
+            count++;
+        }
+        counter.push_back(count);
+        
+        sort(counter.begin(), counter.end());
+        
+        for(int i=0;i<counter.size()-1;i++)
+        {
+            if(counter[i]==counter[i+1])
+            {
+                return false;
+            }
+        }
+        return true;
+}

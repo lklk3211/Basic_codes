@@ -1,0 +1,85 @@
+*********************************************************************************
+#include <iostream>
+using namespace std;
+int pivotIndex(int arr[],int size)
+{
+    int sum=0;
+    for(int i=0;i<size;i++)
+    {
+        sum=sum+arr[i];
+    }
+    
+    int leftSum=0;
+    for(int i=0;i<size;i++)
+    {
+        if(sum-arr[i]-leftSum==leftSum)
+        {
+            return i;
+        }
+        else
+        {
+            leftSum=leftSum+arr[i];
+        }
+    }
+    return -1;
+}
+int main()
+{
+    int arr[50];
+    int size;
+    cout<<"Enter the size of array: ";
+    cin>>size;
+    
+    cout<<"Enter the elements of array: ";
+    for(int i=0;i<size;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    int ans=pivotIndex(arr,size);
+    cout<<"The pivot Index is: "<<ans;
+
+    return 0;
+}
+
+*********************************************************************************************
+
+#include <iostream>
+using namespace std;
+int pivotIndex(int arr[],int size)
+{
+    int s=0;
+    int e=size-1;
+    
+    while(s<e)
+    {
+        int mid=s+(e-s)/2;
+        if(arr[mid]>=arr[0])
+        {
+            s=mid+1;
+        }
+        else
+        {
+            e=mid;
+        }
+    }
+    return s;
+}
+int main()
+{
+    int arr[50];
+    int size;
+    cout<<"Enter the size of array: ";
+    cin>>size;
+    
+    cout<<"Enter the elements of array: ";
+    for(int i=0;i<size;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    int ans=pivotIndex(arr,size);
+    cout<<"The pivot Index is: "<<ans;
+
+    return 0;
+}

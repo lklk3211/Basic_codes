@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+void fib(int num)
+{
+    int a=0;
+    int b=1;
+    cout<<a<<" ";
+    cout<<b<<" ";
+    for(int i=2;i<num;i++)
+    {
+        int c=a+b;
+        a=b;
+        b=c;
+        
+        cout<<c<<" ";
+    }
+   
+    
+    
+}
+
+
+int main()
+{
+   int n;
+   cout<<"Enter the value of n: ";
+   cin>>n;
+   
+   fib(n);
+   
+   
+
+    return 0;
+}

@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+int hammingWeight(int x)
+{
+     int count=0;
+        
+        while(x!=0)
+        {
+            if(x&1)
+            {
+                count++;
+            }
+        x=x>>1;
+        }
+       return count;
+}
+
+
+int main()
+{
+    int n;
+    cout<<"Enter the value of n: ";
+    cin>>n;
+    
+    
+    int ans=hammingWeight(n);
+    cout<<"Number of 1 bits are : "<<ans<<endl; 
+
+    return 0;
+}
